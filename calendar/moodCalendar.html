@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-8 col-12 d-flex flex-wrap">
+                    <p class="d-flex me-4 mb-0">
+                        <i class="bi-geo-alt me-2"></i>
+                        Delhi, India
+                    </p>
+
+                    <p class="d-flex mb-0">
+                        <i class="bi-envelope me-2"></i>
+
+                        <a href="#">
+                            ghar@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+                    <ul class="social-icon">
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-twitter"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-facebook"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-youtube"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" class="logo img-fluid" alt="Kind Heart Charity">
+                <span>
+                    Ghar
+                    <small>your safe space within</small>
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="emergency.html">Emergency SoS</a>
+                    </li>
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookSession/booking.html">Book an Appointment</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mood Calendar</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="music.html">Relaxing Sounds</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Mood Tracker</h1>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prevMonth">&lt;</button>
+                        <h2 id="currentMonth">Month Year</h2>
+                        <button id="nextMonth">&gt;</button>
+                    </div>
+                    <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div id="calendar" class="calendar-grid"></div>
+                </div>
+                
+                <div id="moodInput" class="mood-input">
+                    <h3>How are you feeling today?</h3>
+                    <div class="mood-options">
+                        <button class="mood-btn" data-mood="5">😁 Great</button>
+                        <button class="mood-btn" data-mood="4">😊 Good</button>
+                        <button class="mood-btn" data-mood="3">😐 Okay</button>
+                        <button class="mood-btn" data-mood="2">😔 Sad</button>
+                        <button class="mood-btn" data-mood="1">😢 Awful</button>
+                    </div>
+                    <div class="mood-note">
+                        <textarea id="moodNote" placeholder="Add a note about your day (optional)"></textarea>
+                        <button id="saveMood">Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="graph-container">
+                    <h2>Your Mood Graph</h2>
+                    <div class="mood-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="avgMood">-</div>
+                            <div class="stat-label">Average Mood</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalEntries">0</div>
+                            <div class="stat-label">Total Entries</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="greatDays">0</div>
+                            <div class="stat-label">Great Days</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="sadDays">0</div>
+                            <div class="stat-label">Sad Days</div>
+                        </div>
+                    </div>
+                    <canvas id="moodGraph"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="noteViewer" class="note-viewer">
+            <button class="close-note" id="closeNote">×</button>
+            <div class="note-date" id="noteDate"></div>
+            <div class="note-mood" id="noteMood"></div>
+            <div class="note-text" id="noteText"></div>
+        </div>
+        
+        <div id="actions">
+            <button id="viewHistory" class="view-history-btn">View Mood History</button>
+            <button id="clearData" class="action-btn">Clear All Mood Data</button>
+        </div>
+    </div>
+
+    <div id="partyAnimation" class="party-animation">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48L3N2Zz4=" alt="Party">
+    </div>
+
+    <div id="bookContainer" class="book-container">
+        <div class="book">
+            <div class="book-cover">
+                <div class="book-spine"></div>
+                <div class="book-front">
+                    <div class="book-title">NOTES</div>
+                    <div class="book-illustration">
+                        <div class="star"></div>
+                        <span class="x-mark">×</span>
+                        <div class="planet">
+                            <div class="planet-ring"></div>
+                        </div>
+                        <span class="x-mark">×</span>
+                    </div>
+                </div>
+                <div class="book-back"></div>
+            </div>
+            <div class="book-page-container">
+                <div id="bookPage" class="book-page">
+                    <div class="paper-texture"></div>
+                    <div class="page-content">
+                        <h3 id="pageDate">Date</h3>
+                        <div id="pageMood" class="page-mood">Mood: Great</div>
+                        <div id="pageNote" class="page-note">No notes for this day.</div>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-nav">
+                            <button id="prevPage" class="page-btn">Previous</button>
+                            <button id="nextPage" class="page-btn">Next</button>
+                        </div>
+                        <div id="pageNumber" class="page-number">Page 1 of 10</div>
+                        <button id="closeBook" class="close-book">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
